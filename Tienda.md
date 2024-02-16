@@ -144,24 +144,39 @@ System.out.println("====AGREGAR PRODUCTO====");
     }
 
 //metodo para eliminar un producto proporcionando su id
-    public void eliminarProducto() {
-        System.out.println("Digite el Id del producto que quiere eliminar");
-        int id = lector.nextInt();
-//recorrer la lista de misProductos para verificar el id del producto
-        Iterator<Producto> it = misProductos.iterator();
-        while (it.hasNext()){
-            Producto p = it.next();
-//si el ID coincide se elimina el producto usando remove()
-            if(p.getIdProducto() == id){
-                it.remove();
-                System.out.println("Producto con id "+id+" ha sido eliminado");
-            }else{
+public void eliminarProducto() {
 
-//mostrar error si no se encuentra ningun producto con el ID
-                System.out.println("No se encontro ningun producto con el ID "+ id);
-            }
-        }
-    }
+	 System.out.println("Digite el Id del producto que quiere eliminar: ");
+	int id = lector.nextInt();
+	boolean encontrado = false;
+        //recorrer la lista de misProductos para verificar el id del producto
+	 Iterator<Producto> iterador = misProductos.iterator();
+	 while (iterador.hasNext()) {
+	 Producto p = iterador.next();
+         
+         //Condicional para verificar la eliminacion del producto
+	 if (p.getIdProducto() == id) {
+	 encontrado = true;
+	System.out.println("Desea eliminar el producto con el id: "+id );
+	System.out.println("1. Confirmar\n2. Cancelar: ");
+
+	int confirmacion = lector.nextInt();
+         //si el id coincide se elimina el producto usando remove
+	 if (confirmacion == 1) {
+	iterador.remove();
+	System.out.println("El producto con Id " + id + " ha sido eliminado.");
+	 } else {
+	System.out.println("Se canceló la eliminacion del producto ");
+	 }
+	 break;
+	//mostrar error si no se encuentra ningun producto con el id	                }
+	}
+	if (!encontrado) {
+	 System.out.println("No se encontró el producto con es Id.");
+	 }
+         }       
+		    }
+
 
     public static void main(String[] args) {
         Taller2 organizador = new Taller2();
