@@ -158,7 +158,7 @@ public void eliminarProducto() {
 	 if (p.getIdProducto() == id) {
 	 encontrado = true;
 	System.out.println("Desea eliminar el producto con el id: "+id );
-	System.out.println("1. Confirmar\n2. Cancelar: ");
+	System.out.println("1. Confirmar\n2. Cancelar ");
 
 	int confirmacion = lector.nextInt();
          //si el id coincide se elimina el producto usando remove
